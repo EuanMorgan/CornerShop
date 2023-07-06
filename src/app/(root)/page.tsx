@@ -2,7 +2,7 @@
 
 import {useEffect} from 'react';
 
-import {useStoreModal} from '~/hooks/use-store-modal';
+import {useStoreModal} from '~/hooks/useStoreModal';
 
 // This is a setup page which triggers the modal.
 export default function SetupPage() {

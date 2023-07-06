@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 import {Popover, PopoverContent, PopoverTrigger} from '~/components/ui/popover';
-import {useStoreModal} from '~/hooks/use-store-modal';
+import {useStoreModal} from '~/hooks/useStoreModal';
 import {Button} from '~/components/ui/button';
 import {cn} from '~/lib/utils';
 import {
@@ -68,7 +68,7 @@ export default function StoreSwitcher({
           className={cn('w-[200px] justify-between', className)}
         >
           <StoreIcon className='mr-2 h-4 w-4' />
-          {currentStore?.label}
+          <p className='truncate'>{currentStore?.label}</p>
 
           <ChevronsUpDown className='ml-auto h-4 w-4 shrink-0 opacity-50' />
         </Button>
@@ -83,10 +83,10 @@ export default function StoreSwitcher({
                 <CommandItem
                   key={store.value}
                   onSelect={() => onStoreSelect(store)}
-                  className='text-sm'
+                  className='text-sm flex items-center'
                 >
                   <StoreIcon className='mr-2 h-4 w-4' />
-                  {store.label}
+                  <p className='flex-1 truncate'>{store.label}</p>
                   <Check
                     className={cn(
                       'ml-auto h-4 w-4',

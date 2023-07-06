@@ -6,7 +6,7 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import axios from 'axios';
 
 import {Modal} from '~/components/ui/modal';
-import {useStoreModal} from '~/hooks/use-store-modal';
+import {useStoreModal} from '~/hooks/useStoreModal';
 import {
   Form,
   FormControl,
