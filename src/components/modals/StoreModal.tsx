@@ -19,12 +19,15 @@ import {Input} from '~/components/ui/input';
 import {Button} from '~/components/ui/button';
 import {useState} from 'react';
 import {toast} from 'react-hot-toast';
+import {redirect, useRouter} from 'next/navigation';
 
 const formSchema = z.object({
   name: z.string().min(1),
 });
 
 export const StoreModal = () => {
+  const router = useRouter();
+
   const storeModal = useStoreModal();
 
   const [loading, setLoading] = useState(false);
@@ -45,8 +48,9 @@ export const StoreModal = () => {
 
       const response = await axios.post('/api/stores', values);
 
-      toast.success('Store created');
+      window.location.assign(`/${response.data.id}`);
     } catch (error) {
+      console.error(error);
       toast.error('Something went wrong');
     } finally {
       setLoading(false);
