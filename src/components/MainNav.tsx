@@ -20,6 +20,10 @@ export function MainNav({
       label: 'Overview',
     },
     {
+      href: `/${params.storeId}/billboards`,
+      label: 'Billboards',
+    },
+    {
       href: `/${params.storeId}/settings`,
       label: 'Settings',
     },
