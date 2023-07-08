@@ -23,22 +23,14 @@ import {
 import { Heading } from "~/components/ui/heading";
 import { Input } from "~/components/ui/input";
 import { Separator } from "~/components/ui/separator";
-import { useOrigin } from "~/hooks/useOrigin";
 import { BillboardForm, billboardFormSchema } from "~/schemas/billboard.schema";
 
 const BillboardForm = ({ initialData }: { initialData: Billboard | null }) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? "Edit Billboard" : "Create Billboard";
-  const description = initialData ? "Edit a billboard" : "Add a new billboard";
-  const toastMessage = initialData ? "Billboard updated" : "Billboard created";
-  const action = initialData ? "Save changes" : "Create";
-
   const params = useParams();
   const router = useRouter();
-
-  const origin = useOrigin();
 
   const form = useForm<BillboardForm>({
     resolver: zodResolver(billboardFormSchema),
@@ -85,6 +77,12 @@ const BillboardForm = ({ initialData }: { initialData: Billboard | null }) => {
       setOpen(false);
     }
   };
+
+  // Dyanmic text based on if we are creating or editing a billboard
+  const title = initialData ? "Edit Billboard" : "Create Billboard";
+  const description = initialData ? "Edit a billboard" : "Add a new billboard";
+  const toastMessage = initialData ? "Billboard updated" : "Billboard created";
+  const action = initialData ? "Save changes" : "Create";
 
   return (
     <>
