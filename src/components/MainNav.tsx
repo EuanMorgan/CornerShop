@@ -28,6 +28,10 @@ export function MainNav({
       label: "Categories"
     },
     {
+      href: `/${params.storeId}/sizes`,
+      label: "Sizes"
+    },
+    {
       href: `/${params.storeId}/settings`,
       label: "Settings"
     }
