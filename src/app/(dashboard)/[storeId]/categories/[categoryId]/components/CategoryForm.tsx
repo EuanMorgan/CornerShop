@@ -157,10 +157,7 @@ const CategoryForm = ({
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue
-                          defaultValue={field.value}
-                          placeholder="Select a billboard"
-                        />
+                        <SelectValue placeholder="fuuuck" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
